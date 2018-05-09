@@ -25,4 +25,4 @@ instance Monad (Reader r) where
   return = pure
   --       (r -> a)      (a -> r -> b)        (r -> b)
   (>>=) :: Reader r a -> (a -> Reader r b) -> Reader r b
-  (Reader ra) >>= aRb = Reader $ \r -> flip aRb <*> ra $ r
+  (Reader ra) >>= aRb = Reader $ \r -> (runReader $ aRb $ ra r) r

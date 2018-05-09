@@ -24,6 +24,7 @@ x1 = (,) <$> xs <*> ys
 
 x2 :: Maybe (Integer, Integer)
 x2 = (,) <$> ys <*> zs
+x2' = liftA2 (,) ys zs
 
 x3 :: Integer -> (Maybe Integer, Maybe Integer)
 x3 n = (,) (z' n) (z' n)
